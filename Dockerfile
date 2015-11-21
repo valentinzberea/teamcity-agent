@@ -8,6 +8,7 @@ RUN groupadd -g 999 teamcity \
 USER teamcity
 COPY runAgent /opt/TeamCity/
 VOLUME ["/home/teamcity"]
+EXPOSE 9090
 CMD ["/opt/TeamCity/runAgent"]
 
 USER root
