@@ -6,7 +6,7 @@ ADD setup-agent.sh /setup-agent.sh
 RUN adduser teamcity
 
 RUN apt-get update \
-  && apt-get install -y rsync bzip2 build-essential \
+  && apt-get install -y rsync bzip2 build-essential sudo \
   zip nodejs apt-transport-https \
   && curl -sL https://deb.nodesource.com/setup | bash - \
   && apt-get update \
