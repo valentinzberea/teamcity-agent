@@ -2,16 +2,8 @@ FROM java:openjdk-8-jdk
 
 MAINTAINER Valentin Zberea valentin.zberea@gmail.com
 
-RUN groupadd -g 999 teamcity \
-      && useradd -u 999 -g teamcity -m teamcity \
-      && mkdir -p /opt/TeamCity && chown teamcity:teamcity /opt/TeamCity
-USER teamcity
-COPY runAgent /opt/TeamCity/
-VOLUME ["/home/teamcity"]
-EXPOSE 9090
-CMD ["/opt/TeamCity/runAgent"]
-
-USER root
+ADD setup-agent.sh /setup-agent.sh
+RUN adduser teamcity
 
 RUN apt-get update \
   && apt-get install -y rsync bzip2 build-essential \
@@ -26,4 +18,5 @@ RUN apt-get update \
   && apt-get -y autoremove && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-USER teamcity
+EXPOSE 9090
+CMD sudo -u teamcity -s -- sh -c "TEAMCITY_SERVER=$TEAMCITY_SERVER bash /setup-agent.sh run"
