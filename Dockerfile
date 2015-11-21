@@ -14,9 +14,8 @@ USER root
 
 RUN apt-get update \
   && apt-get install -y rsync bzip2 build-essential \
-  zip nodejs groff python python-pip apt-transport-https \
+  zip nodejs apt-transport-https \
   && curl -sL https://deb.nodesource.com/setup | bash - \
-  && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823 \
   && apt-get update \
   && apt-get install -y nodejs \
   && npm install -g npm@next \
