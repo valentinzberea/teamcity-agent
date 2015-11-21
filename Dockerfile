@@ -20,7 +20,7 @@ RUN apt-get update \
   && apt-get install -y nodejs \
   && npm install -g npm@next \
   && npm install -g bower \
-  && npm install -g npm-cache
+  && npm install -g npm-cache \
   && curl -sSL https://get.docker.com/ | sh \
   && apt-get -y autoremove && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
