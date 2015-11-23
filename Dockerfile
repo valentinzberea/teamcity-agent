@@ -5,14 +5,12 @@ MAINTAINER Valentin Zberea valentin.zberea@gmail.com
 ADD setup-agent.sh /setup-agent.sh
 RUN adduser teamcity
 
-RUN apt-get update && apt-get install -y software-properties-common
-RUN apt-add-repository -y ppa:ansible/ansible
-RUN apt-get install -y ansible
 RUN apt-get update \
   && apt-get install -y rsync bzip2 build-essential sudo \
   zip nodejs apt-transport-https \
   && curl -sL https://deb.nodesource.com/setup | bash - \
   && apt-get update \
+  && pip install ansible \
   && apt-get install -y nodejs \
   && npm install -g npm@next \
   && npm install -g bower \
