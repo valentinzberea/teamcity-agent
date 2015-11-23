@@ -20,5 +20,7 @@ RUN apt-get update \
   && apt-get -y autoremove && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN chown teamcity:teamcity /home/teamcity/.ssh
+
 EXPOSE 9090
 CMD sudo -u teamcity -s -- sh -c "TEAMCITY_SERVER=$TEAMCITY_SERVER AGENT_NAME=Default bash /setup-agent.sh run"
