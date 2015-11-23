@@ -10,7 +10,7 @@ RUN apt-get update \
   zip nodejs apt-transport-https \
   && curl -sL https://deb.nodesource.com/setup | bash - \
   && apt-get update \
-  && pip install ansible \
+  && easy_install pip && pip install ansible \
   && apt-get install -y nodejs \
   && npm install -g npm@next \
   && npm install -g bower \
