@@ -5,9 +5,9 @@ MAINTAINER Valentin Zberea valentin.zberea@gmail.com
 ADD setup-agent.sh /setup-agent.sh
 RUN adduser teamcity
 
-RUN apt-get update && apt-get install software-properties-common
+RUN apt-get update && apt-get install -y software-properties-common
 RUN apt-add-repository -y ppa:ansible/ansible
-RUN apt-get install ansible
+RUN apt-get install -y ansible
 RUN apt-get update \
   && apt-get install -y rsync bzip2 build-essential sudo \
   zip nodejs apt-transport-https \
