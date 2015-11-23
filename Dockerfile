@@ -7,9 +7,11 @@ RUN adduser teamcity
 
 RUN apt-get update \
   && apt-get install -y rsync bzip2 build-essential sudo \
-  zip nodejs apt-transport-https \
+  zip nodejs software-properties-common apt-transport-https \
   && curl -sL https://deb.nodesource.com/setup | bash - \
+  && apt-add-repository ppa:ansible/ansible \
   && apt-get update \
+  && apt-get install ansible \
   && apt-get install -y nodejs \
   && npm install -g npm@next \
   && npm install -g bower \
