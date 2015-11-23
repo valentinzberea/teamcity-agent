@@ -21,7 +21,6 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN mkdir /home/teamcity/.ssh && chown teamcity:teamcity /home/teamcity/.ssh
-RUN mkdir -p /home/teamcity/.package_cache && chown teamcity:teamcity /home/teamcity/.package_cache
 
 EXPOSE 9090
 CMD sudo -u teamcity -s -- sh -c "TEAMCITY_SERVER=$TEAMCITY_SERVER AGENT_NAME=Default bash /setup-agent.sh run"
