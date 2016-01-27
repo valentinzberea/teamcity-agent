@@ -12,6 +12,7 @@ RUN apt-get update \
   && npm install -g npm@next \
   && npm install -g bower \
   && npm install -g npm-cache \
+  && npm install -g gulp \
   && apt-get install -y python-pip python-dev build-essential \
   && pip install ansible \
   && curl -sSL https://get.docker.com/ | sh \
